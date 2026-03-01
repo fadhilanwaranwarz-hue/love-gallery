@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Gallery 💕</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:40px 20px;
+    animation:fadeDown 1.5s ease;
+}
+
+header h1{
+    font-size:38px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* GALERI */
+.gallery{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:30px;
+    animation:fadeUp 1.5s ease;
+}
+
+.gallery img{
+    width: 100%;
+    height:369px;
+    object-fit:cover;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+.gallery img:hover{
+    transform:scale(1.07);
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal img{
+    max-width:90%;
+    max-height:80%;
+    border-radius:20px;
+}
+
+/* LOVE FALL */
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(-10vh);}
+    100%{transform:translateY(110vh);}
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💖 Fadhil & My Love 💖</h1>
+    <p>Setiap foto adalah cerita tentang kita ✨</p>
+    <p>(LDR)Hubungan Yang Sulit Untuk Dipertahankan</p>
+    <p>Tapi Kita Alhamdulilah SAH ( huftt hehe amin).</p>
+</header>
+
+<section class="gallery">
+    <img src="foto 1.jpeg" onclick="openModal(this.src)">
+    <img src="foto 2.jpeg" onclick="openModal(this.src)">
+    <br>
+    <p>Bertemu Denganmu Adalah Hal Yang Aku Tunggu</p>
+    <img src="foto 3.jpeg" onclick="openModal(this.src)">
+    <img src="foto 4.jpeg" onclick="openModal(this.src)">
+    <img src="foto 5.jpeg" onclick="openModal(this.src)">
+    <br>
+    <br>
+    <p>Heh aku punya cewek cantikk,imutt dia kalo ga di kabarin bedmod
+        pengen tau nggk? ini orang nya ada di bawah
+    </p>
+    <p>Biasanya si aku panggil bebebbb</p>
+    <img src="IMG-1.jpg" alt="">
+    <img src="IMG-2.jpg" alt="">
+    <img src="img.jpg" alt="">
+    <br>
+    <p>Cantik Kan Orang nya? iyalah punya siapa dulu (wlee) Ooo iyaa aku punya pesen buat dia nih</p>
+    <p>"Ngambek ya boleh, tapi jangan kayak paket Shopee ya… lama banget sampenya (hehe)"</p>
+    <p>LOVEYOU CINTAA</p>
+</section>
+
+<div class="modal" id="modal" onclick="closeModal()">
+    <img id="modalImg">
+</div>
+
+<script>
+function openModal(src){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+function loveFall(){
+    setInterval(()=>{
+        let heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="💗";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{heart.remove();},5000);
+    },400);
+}
+
+loveFall();
+</script>
+
+</body>
+</html>
